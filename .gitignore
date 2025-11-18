@@ -2,7 +2,7 @@
 # This file tells Git which files or folders to ignore in your project  
 
 # in the context of Codeserver, Readme contains sensitive info
-README.md
+readme.md
 
 # the filebrowser in CodeServer does not need to be committed to version control
 filebrowser.db
