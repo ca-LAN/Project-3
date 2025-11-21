@@ -123,7 +123,7 @@ const editItem = (data) => {
 
 // Delete item
 const deleteItem = async (id) => {
-    if (!confirm('Are you sure you want to delete this cat?')) {
+    if (!confirm('Are you sure you want to delete this tea?')) {
         return
     }
 
@@ -164,7 +164,9 @@ const calendarWidget = (date) => {
 
 }
 
-// Render a single item
+
+
+// Render a single item 
 const renderItem = (item) => {
     const div = document.createElement('div')
     div.classList.add('item-card')
@@ -173,56 +175,35 @@ const renderItem = (item) => {
     const template = /*html*/`  
     <div class="item-heading">
         <h3> ${item.name} </h3>
-        <div class="microchip-info">
-            <img src="./assets/chip.svg" /> ${item.microchip || '<i>???</i>'} 
-        </div>  
+        <div class="meta-info">
+            <div class="type">${item.type || ''}</div>
+            <div class="caffeine">${item.caffeineLevel || ''}</div>
+            <div class="rating">${item.rating ? item.rating + ' / 5' : '—'}</div>
+        </div>
     </div>
     <div class="item-info"> 
-        <div class="item-icon" style="
-            background: linear-gradient(135deg, 
-            ${item.primaryColor} 0%, 
-            ${item.primaryColor} 40%, 
-            ${item.secondaryColor} 60%, 
-            ${item.secondaryColor} 100%); 
-        ">
-        </div> 
+        <div class="item-icon"></div> 
         <div class="stats">
             <div class="stat">
-                <span>Playfulness</span>
-                <meter max="10" min="0" value="${item.playfulness || 0}"></meter> 
+                <span>Loose leaf</span>
+                <span>${item.looseLeaf ? 'Yes' : 'No'}</span>
             </div>
             <div class="stat">
-                <span>Appetite</span>
-                <meter max="10" min="0" value="${item.appetite || 0}"></meter> 
+                <span>Origin</span>
+                <span>${item.origin || '<i>Unknown</i>'}</span>
             </div>
         </div> 
-            
-         ${calendarWidget(item.birthDate)}
-    </div>
-        
-    <div class="item-info">  
-        <section class="breed" style="${item.breed ? '' : 'display:none;'}">  
-            <img src="./assets/ribbon.svg" />  ${item.breed}
-        </section>
-        <section class="food" style="${item.food ? '' : 'display:none;'}">
-             <img src="./assets/${item.food}.svg" /> <span>${item.food} food</span>
-        </section> 
-        <section class="adoption">
-            <img src="./assets/${item.isAdopted ? 'adopted' : 'paw'}.svg" />
-            ${item.isAdopted ? 'Adopted' : 'Available'}
-        </section> 
+        ${calendarWidget(item.brewedAt)}
     </div>
 
-    <section class="description" style="${item.description ? '' : 'display:none;'}">  
-        <p>${item.description}</p>
+    <section class="description" style="${item.notes ? '' : 'display:none;'}">  
+        <p>${item.notes}</p>
     </section>
 
-        
-           
-        <div class="item-actions">
-            <button class="edit-btn">Edit</button>
-            <button class="delete-btn">Delete</button>
-        </div>
+    <div class="item-actions">
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+    </div>
     `
     div.innerHTML = DOMPurify.sanitize(template);
 

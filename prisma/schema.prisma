@@ -6,57 +6,14 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
-
-/// Types of tea for categorization
-enum TeaType {
-  GREEN
-  BLACK
-  OOLONG
-  WHITE
-  HERBAL
-  PUERH
-  YELLOW
-  OTHER
-}
-
-/// Caffeine level for the tea
-enum CaffeineLevel {
-  NONE
-  LOW
-  MEDIUM
-  HIGH
-}
-
-/// A tea entry in a personal tea collection
 model Tea {
-  /// Mongo ObjectId primary key
-  id            String         @id @default(auto()) @map("_id") @db.ObjectId
-
-  /// Display name for this tea (e.g. 'Dragon Well')
-  name          String
-
-  /// Broad tea category
-  type          TeaType
-
-  /// Estimated caffeine level
-  caffeineLevel CaffeineLevel
-
-  /// Is this loose leaf (true) or a bag (false)
-  looseLeaf     Boolean
-
-  /// Personal rating (1-5). Optional.
-  rating        Int?
-
-  /// Free-form personal notes
-  notes         String?
-
-  /// Optional origin or location where the tea was sourced
-  origin        String?
-
-  /// When the tea was added or brewed (optional)
-  brewedAt      DateTime?      @db.Date
-
-  /// Timestamps
-  createdAt     DateTime       @default(now())
-  updatedAt     DateTime       @updatedAt
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  type           String?
+  name           String?
+  caffeineLevel  String?
+  isLooseLeaf    Boolean?
+  rating         Int?           // personal rating (e.g. 1-5)
+  notes          String?        // personal notes
+  createdAt      DateTime?      @default(now()) @db.Date
+  updatedAt      DateTime?      @updatedAt @db.Date
 }
