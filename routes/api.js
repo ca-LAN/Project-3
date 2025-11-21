@@ -3,8 +3,8 @@
 import express from 'express'
 const router = express.Router()
 
-// Set this to match the model name in your Prisma schema
-const model = 'cats'
+// Set this to match the model name in your Prisma schema (lowercase)
+const model = 'tea'
 
 // Prisma lets NodeJS communicate with MongoDB
 // Let's import and initialize the Prisma client

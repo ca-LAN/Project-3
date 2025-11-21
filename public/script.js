@@ -115,7 +115,7 @@ const editItem = (data) => {
     })
 
     // Update the heading to indicate edit mode
-    formHeading.textContent = '🐈 Edit Cat'
+    formHeading.textContent = '🍵 Edit Tea'
 
     // Show the popover
     formPopover.showPopover()
@@ -272,10 +272,10 @@ const getData = async () => {
 }
 
 // Revert to the default form title on reset
-myForm.addEventListener('reset', () => formHeading.textContent = '🐈 Share a Cat')
+myForm.addEventListener('reset', () => formHeading.textContent = 'Your tea experience')
 
-// Reset the form when the create button is clicked. 
-createButton.addEventListener('click', myForm.reset())
+// Reset the form when the create button is clicked.
+createButton.addEventListener('click', () => myForm.reset())
 
 // Load initial data
 getData()
