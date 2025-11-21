@@ -285,15 +285,6 @@ textarea:user-invalid+.validation {
     margin: 0.75rem 0 0 2rem;
 }
 
-/* meta info for tea cards (type, caffeine, rating) */
-.meta-info {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    font-size: 1rem;
-    color: #444;
-}
-
 .item-info {
     width: 100%;
     display: flex;
@@ -425,9 +416,8 @@ meter::-webkit-meter-even-less-good-value {
     width: 100px;
     height: 100px;
     display: inline-block;
-    /* prefer a tea icon if present, fall back to cat.svg */
-    -webkit-mask-image: url(./assets/tea.svg);
-    mask-image: url(./assets/tea.svg);
+    -webkit-mask-image: url(./assets/cat.svg);
+    mask-image: url(./assets/cat.svg);
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
